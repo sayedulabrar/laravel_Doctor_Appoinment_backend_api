@@ -7,61 +7,91 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Available API Routes
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This section lists all the available routes for the `doc_app_Laravel` project, including API endpoints and authentication routes.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Public Routes
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Login**
+  - `GET /login`: Display the login form.
+  - `POST /login`: Handle login requests.
 
-## Learning Laravel
+- **Register**
+  - `GET /register`: Display the registration form.
+  - `POST /register`: Handle registration requests.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Forgot Password**
+  - `GET /forgot-password`: Display the form to request a password reset link.
+  - `POST /forgot-password`: Handle requests to send the password reset link.
+  - `GET /reset-password/{token}`: Display the password reset form.
+  - `POST /reset-password`: Handle the password reset requests.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### User Routes
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **User Profile**
+  - `GET /user/profile`: Display the user profile.
+  - `PUT /user/profile-information`: Update the user profile information.
+  - `PUT /user/password`: Update the user password.
 
-## Laravel Sponsors
+- **Two-Factor Authentication**
+  - `GET /user/two-factor-challenge`: Display the two-factor authentication challenge.
+  - `POST /two-factor-challenge`: Handle two-factor authentication verification.
+  - `POST /user/two-factor-authentication`: Enable two-factor authentication.
+  - `DELETE /user/two-factor-authentication`: Disable two-factor authentication.
+  - `GET /user/two-factor-qr-code`: Display the QR code for two-factor authentication setup.
+  - `GET /user/two-factor-recovery-codes`: Display the recovery codes for two-factor authentication.
+  - `POST /user/two-factor-recovery-codes`: Regenerate two-factor authentication recovery codes.
+  - `GET /user/two-factor-secret-key`: Display the two-factor authentication secret key.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- **API Tokens**
+  - `GET /user/api-tokens`: Display the user's API tokens.
 
-### Premium Partners
+- **Confirm Password**
+  - `GET /user/confirm-password`: Display the confirm password form.
+  - `POST /user/confirm-password`: Handle confirm password requests.
+  - `GET /user/confirmed-password-status`: Check if the user's password is confirmed.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### Appointment Routes
 
-## Contributing
+- **Appointments**
+  - `GET /api/appointments`: Retrieve a list of appointments.
+  - `POST /api/book`: Book a new appointment.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### User Interaction Routes
 
-## Code of Conduct
+- **Favorites**
+  - `POST /api/fav`: Add a doctor to the user's favorites.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **Reviews**
+  - `POST /api/reviews`: Submit a review for a doctor.
 
-## Security Vulnerabilities
+### Authentication Routes
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- **Login**
+  - `POST /api/login`: Authenticate the user.
 
-## License
+- **Logout**
+  - `POST /api/logout`: Log out the authenticated user.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-"# laravel_Doctor_Appoinment_backend_api" 
+- **Register**
+  - `POST /api/register`: Register a new user.
+
+### System Routes
+
+- **Dashboard**
+  - `GET /dashboard`: Display the main dashboard.
+
+### Ignition (Error Handling)
+
+- `GET /_ignition/health-check`: Perform a health check.
+- `POST /_ignition/execute-solution`: Execute a solution for an error.
+- `POST /_ignition/update-config`: Update the Ignition configuration.
+
+### Privacy & Terms
+
+- **Privacy Policy**
+  - `GET /privacy-policy`: Display the privacy policy.
+
+- **Terms of Service**
+  - `GET /terms-of-service`: Display the terms of service.

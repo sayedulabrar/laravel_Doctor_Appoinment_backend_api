@@ -9,7 +9,7 @@
 
 ## Available API Routes
 
-This section lists all the available routes for the `doc_app_Laravel` project, including API endpoints and authentication routes.
+This section lists all the available routes for the `laravel_Doctor_Appoinment_backend_api` project, including API endpoints and authentication routes.
 
 ### Public Routes
 
